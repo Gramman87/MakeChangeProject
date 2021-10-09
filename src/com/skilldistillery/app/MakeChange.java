@@ -11,11 +11,13 @@ public class MakeChange {
 		
 		while (businessHours) {
 			printMenu();
+			System.out.print("Menu selection: ");
 			int userInput = scanner.nextInt();
 			
 			switch (userInput) {
 			case 1:
-				subMenu();
+				double change = subMenu();
+				changeDisplay(change);
 				break;
 			case 2:
 				System.out.println("Program Terminating... Goodbye.");
@@ -23,33 +25,6 @@ public class MakeChange {
 			}
 			
 		}
-		
-		double change = subMenu();
-
-		int bills = (int) change;
-
-		int twnt = 0, ten = 0, five = 0, one = 0;
-		
-		twnt = bills / 20;
-		bills %= 20;
-		ten = bills / 10;
-		bills %= 10;
-		five = bills / 5;
-		bills %= 5;
-		one = bills;
-
-		double coinsD = (change - (int) change) * 100;
-		int coins = (int) coinsD;
-		
-		int qrtr = 0, dime = 0, nckl = 0, pny = 0;
-		
-		qrtr = coins / 25;
-		coins %= 25;
-		dime = coins / 10;
-		coins %= 10;
-		nckl = coins / 5;
-		coins %= 5;
-		pny = coins;
 				
 	}
 
@@ -86,7 +61,57 @@ public class MakeChange {
 
 		}
 		
-		public static void changeDisplay() {
+		public static void changeDisplay(double change) {
+			
+			int bills = (int) change;
+			
+			int twnt = 0, ten = 0, five = 0, one = 0;
+			
+			twnt = bills / 20;
+			bills %= 20;
+			ten = bills / 10;
+			bills %= 10;
+			five = bills / 5;
+			bills %= 5;
+			one = bills;
+			
+			double coinsD = (change - (int) change) * 100;
+			int coins = (int) coinsD;
+			
+			int qtr = 0, dime = 0, nckl = 0, pny = 0;
+			
+			qtr = coins / 25;
+			coins %= 25;
+			dime = coins / 10;
+			coins %= 10;
+			nckl = coins / 5;
+			coins %= 5;
+			pny = coins;
+			
+			if(twnt != 0) {
+				System.out.print("$20: " + twnt + "\t");
+			}
+			if (ten != 0) {
+				System.out.print("$10: " + ten + "\t");
+			}
+			if (five != 0) {
+				System.out.print("$5: " + five + "\t");
+			}
+			if (one != 0) {
+				System.out.println("$1: " + one);
+			}
+			if(qtr != 0) {
+				System.out.print(".25c: " + qtr + "\t");
+			}
+			if (dime != 0) {
+				System.out.print(".10c: " + dime + "\t");
+			}
+			if (nckl != 0) {
+				System.out.print(".05c: " + nckl + "\t");
+			}
+			if (pny != 0) {
+				System.out.println(".01c: " + pny);
+			}
 			
 		}
 
