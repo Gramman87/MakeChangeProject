@@ -22,6 +22,7 @@ public class MakeChange {
 			case 2:
 				System.out.println("Program Terminating... Goodbye.");
 				businessHours = false;
+				
 			}
 			
 		}
@@ -76,7 +77,7 @@ public class MakeChange {
 			one = bills;
 			
 			double coinsD = (change - (int) change) * 100;
-			int coins = (int) coinsD;
+			int coins = (int) (Math.round(coinsD));
 			
 			int qtr = 0, dime = 0, nckl = 0, pny = 0;
 			
