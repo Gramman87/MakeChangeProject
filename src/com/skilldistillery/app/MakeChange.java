@@ -13,13 +13,14 @@ public class MakeChange {
 			printMenu();
 			System.out.print("Menu selection: ");
 			int userInput = scanner.nextInt();
+			double tax = 0;
 			
 			switch (userInput) {
 			case 1:
-				double change = subMenu();
+				double change = subMenu(tax);
 				changeDisplay(change);
 				break;
-			case 2:
+			case 3:
 				System.out.println("Program Terminating... Goodbye.");
 				businessHours = false;
 				
@@ -33,16 +34,18 @@ public class MakeChange {
 			System.out.println();
 			System.out.println("========= MENU =========");
 			System.out.println("|                      |");
-			System.out.println("|   1. Customer Trans. |");
-			System.out.println("|   3. Exit            |");
+			System.out.println("|   1. Transactions    |");
+			System.out.println("| 2.Tax(UnderCnstrctn) |");
+			System.out.println("|   3.    Exit         |");
 			System.out.println("|                      |");
 			System.out.println("========================");
 			System.out.println();
 		}
 
-		public static double subMenu() {
+		public static double subMenu(double tax) {
 			double change = 0;
-
+//			double transactionTax = (tax / 100) + 1;
+			
 			System.out.print("What is the item cost: ");
 			double cost = scanner.nextDouble();
 
@@ -53,6 +56,9 @@ public class MakeChange {
 				System.err.println("Not enough tendered.");
 			} else if (cost == tender) {
 				System.out.println("Exact change tendered!");
+//			} else if(transactionTax != 0){
+//				change = -((cost * transactionTax) - tender);
+//				System.err.println("Change due: " + change);
 			} else {
 				change = -(cost - tender);
 				System.err.println("Change due: " + change);
