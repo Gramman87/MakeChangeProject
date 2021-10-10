@@ -1,7 +1,6 @@
 package com.skilldistillery.app;
 
 import java.util.Scanner;
-import java.util.Set;
 
 public class MakeChange {
 
