@@ -1,6 +1,7 @@
 package com.skilldistillery.app;
 
 import java.util.Scanner;
+import java.util.Set;
 
 public class MakeChange {
 
@@ -8,17 +9,21 @@ public class MakeChange {
 
 	public static void main(String[] args) {
 		boolean businessHours = true;
+		double tax = 0;
 		
 		while (businessHours) {
 			printMenu();
 			System.out.print("Menu selection: ");
 			int userInput = scanner.nextInt();
-			double tax = 0;
 			
 			switch (userInput) {
 			case 1:
 				double change = subMenu(tax);
 				changeDisplay(change);
+				break;
+			case 2:
+				System.out.print("What is the tax rate :");
+				tax = scanner.nextDouble();
 				break;
 			case 3:
 				System.out.println("Program Terminating... Goodbye.");
@@ -35,7 +40,7 @@ public class MakeChange {
 			System.out.println("========= MENU =========");
 			System.out.println("|                      |");
 			System.out.println("|   1. Transactions    |");
-			System.out.println("| 2.Tax(UnderCnstrctn) |");
+			System.out.println("|   2.    Tax          |");
 			System.out.println("|   3.    Exit         |");
 			System.out.println("|                      |");
 			System.out.println("========================");
@@ -44,7 +49,7 @@ public class MakeChange {
 
 		public static double subMenu(double tax) {
 			double change = 0;
-//			double transactionTax = (tax / 100) + 1;
+			double transactionTax = (tax / 100) + 1;
 			
 			System.out.print("What is the item cost: ");
 			double cost = scanner.nextDouble();
@@ -56,11 +61,11 @@ public class MakeChange {
 				System.err.println("Not enough tendered.");
 			} else if (cost == tender) {
 				System.out.println("Exact change tendered!");
-//			} else if(transactionTax != 0){
-//				change = -((cost * transactionTax) - tender);
-//				System.err.println("Change due: " + change);
+			} else if(transactionTax != 0){
+				change = tender - (cost * transactionTax);
+				System.err.println("Change due: " + change);
 			} else {
-				change = -(cost - tender);
+				change = tender - cost;
 				System.err.println("Change due: " + change);
 			}
 
