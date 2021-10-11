@@ -59,12 +59,9 @@ public class MakeChange {
 			if (cost > tender) {
 				System.err.println("Not enough tendered.");
 			} else if (cost == tender) {
-				System.out.println("Exact change tendered!");
-			} else if(transactionTax != 0){
-				change = tender - (cost * transactionTax);
-				System.err.println("Change due: " + change);
+				System.err.println("Exact change tendered!");
 			} else {
-				change = tender - cost;
+				change = tender - (cost * transactionTax);
 				System.err.println("Change due: " + change);
 			}
 
