@@ -62,7 +62,9 @@ public class MakeChange {
 				System.err.println("Exact change tendered!");
 			} else {
 				change = tender - (cost * transactionTax);
-				System.err.println("Change due: " + change);
+				System.err.print("Change due: ");
+				System.err.printf("%.2f", change);
+				System.out.println();
 			}
 
 			return change;
@@ -97,28 +99,28 @@ public class MakeChange {
 			pny = coins;
 			
 			if(twnt != 0) {
-				System.out.print("$20: " + twnt + "\t");
+				System.out.print("Twenties ($20): " + twnt + "  ");
 			}
 			if (ten != 0) {
-				System.out.print("$10: " + ten + "\t");
+				System.out.print("Tens ($10): " + ten + "  ");
 			}
 			if (five != 0) {
-				System.out.print("$5: " + five + "\t");
+				System.out.print("Fives ($5): " + five + "  ");
 			}
 			if (one != 0) {
-				System.out.println("$1: " + one);
+				System.out.println("Ones ($1): " + one);
 			}
 			if(qtr != 0) {
-				System.out.print(".25c: " + qtr + "\t");
+				System.out.print("Quarters ($.25): " + qtr + "  ");
 			}
 			if (dime != 0) {
-				System.out.print(".10c: " + dime + "\t");
+				System.out.print("Dimes ($.10): " + dime + "  ");
 			}
 			if (nckl != 0) {
-				System.out.print(".05c: " + nckl + "\t");
+				System.out.print("Nickles ($.05): " + nckl + "  ");
 			}
 			if (pny != 0) {
-				System.out.println(".01c: " + pny);
+				System.out.println("Pennies ($.01): " + pny);
 			}
 			
 		}
